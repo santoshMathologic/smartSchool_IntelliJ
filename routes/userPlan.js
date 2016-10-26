@@ -39,7 +39,7 @@ var userplans = {
             return res.json({
                 "status": 200,
                 "success": true,
-                "message": "Upload saved Successfully",
+                "message": "UserPlan saved Successfully",
             });
         });
     }
