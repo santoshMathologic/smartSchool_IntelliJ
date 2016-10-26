@@ -3,6 +3,7 @@ var router = express.Router();
 var userPlan = require('./userPlan.js');
 var userUpload = require('./Upload.js');
 var train = require('./train.js');
+var multer = require('multer');
 
 var upload = multer({
   dest: './uploads',
@@ -21,6 +22,8 @@ router.get('/', function(req, res, next) {
 
 // Routes for UserPlan
 router.get("/api/v1/userPlans", userPlan.getUserPlan);
+router.post("/api/v1/userPlans", userPlan.createPlan);
+
 
 // Routes for upload
 router.post("/api/v1/upload/NewUpload",upload.single('Uploadfile'),userUpload.createNewUpload);

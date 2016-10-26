@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 var q = require('q');
-var multer = require('multer')
+var multer = require('multer');
 
-var upload = multer({ dest: 'uploads/' })
+var upload = multer({ dest: 'uploads/' });
 var customConverter = require('../Utils/convertFileSystem.js');
-
+var customeException = require('../library/exception.js');
 var uploadModel = require("../models/upload.js");
 
 

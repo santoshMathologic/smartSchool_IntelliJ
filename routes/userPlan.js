@@ -22,6 +22,28 @@ var userplans = {
         });
     },
 
+    createPlan: function(req,res,next){
+
+              var userPlan  =  req.body.newPlan;
+
+            var planObject = new planModel({
+             planName:userPlan,
+                owner:"santosh"
+
+
+        })
+
+        planModel.create(planObject, function (err) {
+            if (err) return err;
+            res.status(201);
+            return res.json({
+                "status": 200,
+                "success": true,
+                "message": "Upload saved Successfully",
+            });
+        });
+    }
+
 
 }
 
