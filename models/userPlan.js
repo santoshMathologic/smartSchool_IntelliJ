@@ -13,6 +13,8 @@ var planSchema = new mongoose.Schema({
     owner: { type: String },
     isLinkGenerated: { type: Boolean, default: false },
     markDelete: { type: Boolean, default: false },
-    createdTime: { type: Date, default: Date.now }
+    createdTime: { type: Date, default: Date.now },
+    userTime: { type: Date, default: Date.now }
+
 });
 module.exports = mongoose.model('plan', planSchema);
