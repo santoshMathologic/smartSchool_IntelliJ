@@ -25,9 +25,24 @@ var getFileType  = function(originalFileName){
         return false
 }
 
+var hrsToMinutes  = function (time) {
+    time = time.split(":");
+    return parseInt(time[0]) * 60 + parseInt(time[1]);
+}
+
+var minutesToHours = function (minutes) {
+    var mins = Math.round(parseInt((((minutes / 60) % 1).toFixed(2).substring(2))) * 0.6);
+    mins = (mins < 10) ? "0" + mins : mins;
+    var hrs = Math.floor(minutes / 60);
+    hrs = (hrs < 10) ? "0" + hrs : hrs;
+    return hrs + ":" + mins;
+}
+
 var customConverter = {
     convertBytesToKb: convertBytesToKb,
-    getFileType :getFileType
+    getFileType :getFileType,
+    hrsToMinutes:hrsToMinutes,
+    minutesToHours:minutesToHours
 }
 
 

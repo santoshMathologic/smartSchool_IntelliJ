@@ -5,8 +5,10 @@ var express = require('express');
 var router = express.Router();
 var uploadModel = require("../models/upload.js");
 var trainModel = require("../models/train.js");
+var timeCal = require("../library/timeCalculator.js");
 var Q = require('q');
 var trainListArrray = [];
+var trainStationListArrray = [];
 
 
 var trains = {
@@ -141,6 +143,11 @@ function parseTrainStation(data) {
         var stationCode;
         var day_of_journey;
         var distance;
+        var arrivalDay;
+        var departureDay;
+        var departureDate;
+        var arrivalDate;
+
         var rowdata = rows[i].split(",");
         if (rowdata[0] != "") {
             trainNo         =  rowdata[0]
@@ -150,8 +157,31 @@ function parseTrainStation(data) {
             arrival         = rowdata[4];
             departure       = rowdata[5];
             distance        = rowdata[6];
+            arrivalDay      = day_of_journey- 1;
+            departureDay    = arrivalDay;
+
+            var arrivalDateTimeObj = { day: arrivalDay, time: arrival };
+            var departureDateTimeObj = { day: departureDay, time: departure };
+            var arrivalTimeMinutes = timeCal.convertDateTimeObjToNumber(arrivalDateTimeObj);
+            var departureTimeMinutes = timeCal.convertDateTimeObjToNumber(departureDateTimeObj);
+
         }
 
+        arrivalDate = day_of_journey + ' Jan 2012 ' + arrival + ':00 GMT+0000';
+
+        if (arrivalTimeMinutes > departureTimeMinutes) {
+            departureDay = parseInt(arrivalDay) + 1;
+           // departureDate = (dayOfJourney + 1) + ' Jan 2012 ' + departureTime + ':00 GMT+0000';
+        }
+        else {
+            departureDay = arrivalDay;
+            //departureDate = (dayOfJourney) + ' Jan 2012 ' + departureTime + ':00 GMT+0000';
+        }
+
+        var arrivalDateTime = new Date(arrivalDate);
+        var departureDateTime = new Date(departureDate);
+
+       // pushTrainStationToArray(trainNo,stop_Number,stationCode);
 
 
     }
@@ -159,6 +189,24 @@ function parseTrainStation(data) {
 
 
 
+}
+function pushTrainStationToArray(trainNo, stop_Number, stationCode, arrivalTime,departureTime,arrivalMinutes,departureMinutes,arrivalDateTime,departureDateTime,arrivalDay,departureDay,day_of_journey,distance) {
+    trainStationListArrray.push({
+        trainNo: trainNo,
+        stopNo: stop_Number,
+        stationCode: stationCode,
+        arrivalTime: arrivalTime,
+        departureTime: departureTime,
+        arrivalMinutes: arrivalMinutes,
+        departureMinutes: departureMinutes,
+        arrivalDateTime: arrivalDateTime,
+        departureDateTime: departureDateTime,
+        arrivalDay: arrivalDay,
+        departureDay: departureDay,
+        dayOfJourney: day_of_journey,
+        distance: distance
+
+    })
 }
 function pushDataToArray(trainNo, trainName, fromStation, toStation, runningDays, trainType) {
     trainListArrray.push({
