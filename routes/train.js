@@ -127,7 +127,34 @@ function parseTrainTimeTable(data) {
 
 function parseTrainStation(data) {
 
-    console.log("" + data);
+
+
+    var deferred = Q.defer();
+    data += '\n';
+    var re = /\r\n|\n\r|\n|\r/g;
+    var rows = data.replace(re, "\n").split("\n");
+    for (var i = 1; i < rows.length; i++) {
+        var trainNo;
+        var stop_Number;
+        var arrival;
+        var departure;
+        var stationCode;
+        var day_of_journey;
+        var distance;
+        var rowdata = rows[i].split(",");
+        if (rowdata[0] != "") {
+            trainNo         =  rowdata[0]
+            stop_Number     = rowdata[1];
+            stationCode     = rowdata[2];
+            day_of_journey  = rowdata[3];
+            arrival         = rowdata[4];
+            departure       = rowdata[5];
+            distance        = rowdata[6];
+        }
+
+
+
+    }
 
 
 

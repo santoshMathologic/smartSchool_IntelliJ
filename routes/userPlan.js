@@ -22,7 +22,7 @@ var userplans = {
         });
     },
 
-    createPlan: function(req,res,next){
+    createPlan: function(req,res){
 
               var userPlan  =  req.body.newPlan;
 
