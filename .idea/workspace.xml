@@ -5,10 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/app.js" afterPath="$PROJECT_DIR$/public/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/upload.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/upload.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/directives/dashboard/Upload/upload.directive.html" afterPath="$PROJECT_DIR$/public/scripts/directives/dashboard/Upload/upload.directive.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/directives/dashboard/Upload/upload.js" afterPath="$PROJECT_DIR$/public/scripts/directives/dashboard/Upload/upload.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/dashboard/upload.tmpl.html" afterPath="$PROJECT_DIR$/public/views/dashboard/upload.tmpl.html" />
     </list>
     <ignored path="smartSchool.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,11 +26,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="upload.tmpl.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="upload.tmpl.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/dashboard/upload.tmpl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-482">
+            <state relative-caret-position="-134">
               <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="667">
+              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -96,11 +112,11 @@
         <option value="$PROJECT_DIR$/public/scripts/directives/dashboard/Upload/upload.html" />
         <option value="$PROJECT_DIR$/public/bower.json" />
         <option value="$PROJECT_DIR$/public/scripts/directives/dashboard/Upload/upload.directive.html" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/upload.js" />
-        <option value="$PROJECT_DIR$/public/scripts/app.js" />
         <option value="$PROJECT_DIR$/public/scripts/directives/dashboard/Upload/upload.js" />
         <option value="$PROJECT_DIR$/public/views/dashboard/upload.tmpl.html" />
+        <option value="$PROJECT_DIR$/public/scripts/app.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
       </list>
     </option>
   </component>
@@ -736,7 +752,7 @@
       <workItem from="1477973273372" duration="819000" />
       <workItem from="1478019212481" duration="3446000" />
       <workItem from="1478058939966" duration="594000" />
-      <workItem from="1478109837822" duration="12417000" />
+      <workItem from="1478109837822" duration="12792000" />
     </task>
     <task id="LOCAL-00001" summary="added multer npm">
       <created>1477514848148</created>
@@ -808,11 +824,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478119192296</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Upload Added with ng_module">
+      <created>1478126771394</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1478126771394</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51174000" />
+    <option name="totallyTimeSpent" value="51549000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -912,7 +935,8 @@
     <MESSAGE value="working on TrainStation" />
     <MESSAGE value="added HTML TEmplate" />
     <MESSAGE value="Upload added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Upload added" />
+    <MESSAGE value="Upload Added with ng_module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upload Added with ng_module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1297,14 +1321,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="37" column="83" selection-start-line="37" selection-start-column="83" selection-end-line="37" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/upload.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -1323,14 +1339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/directives/dashboard/Upload/upload.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -1341,8 +1349,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/dashboard/upload.tmpl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-482">
+        <state relative-caret-position="-134">
           <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>

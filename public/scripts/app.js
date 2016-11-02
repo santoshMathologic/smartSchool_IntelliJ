@@ -14,7 +14,8 @@ angular
     'ui.bootstrap',
     'angular-loading-bar',
       'ngFileUpload',
-      'flow'
+      'flow',
+      'toaster'
   ])
   .config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider) {
     
