@@ -6,9 +6,10 @@ var router = express.Router();
 var uploadModel = require("../models/upload.js");
 var trainModel = require("../models/train.js");
 var timeCal = require("../library/timeCalculator.js");
+var jourCal = require("../library/journeyCalculation.js");
 var Q = require('q');
-var trainListArrray = [];
-var trainStationListArrray = [];
+var trainListArray = [];
+var trainStationListArray = [];
 
 
 var trains = {
@@ -120,7 +121,7 @@ function parseTrainTimeTable(data) {
 
         }
     }
-    createTrainList(trainListArrray).then(function (response) {
+    createTrainList(trainListArray).then(function (response) {
         console.log("Response" + response);
         deferred.resolve(response);
     })
@@ -147,6 +148,7 @@ function parseTrainStation(data) {
         var departureDay;
         var departureDate;
         var arrivalDate;
+        var journeyDuration;
 
         var rowdata = rows[i].split(",");
         if (rowdata[0] != "") {
@@ -171,17 +173,19 @@ function parseTrainStation(data) {
 
         if (arrivalTimeMinutes > departureTimeMinutes) {
             departureDay = parseInt(arrivalDay) + 1;
-           // departureDate = (dayOfJourney + 1) + ' Jan 2012 ' + departureTime + ':00 GMT+0000';
+            departureDate = (day_of_journey + 1) + ' Jan 2012 ' + departure + ':00 GMT+0000';
         }
         else {
             departureDay = arrivalDay;
-            //departureDate = (dayOfJourney) + ' Jan 2012 ' + departureTime + ':00 GMT+0000';
+            departureDate = (day_of_journey) + ' Jan 2012 ' + departure+ ':00 GMT+0000';
         }
 
         var arrivalDateTime = new Date(arrivalDate);
         var departureDateTime = new Date(departureDate);
+        journeyDuration =  jourCal.calculateJourneyDuration(arrival,departure);
 
-       // pushTrainStationToArray(trainNo,stop_Number,stationCode);
+
+       pushTrainStationToArray(trainNo,stop_Number,stationCode,arrival,departure,arrivalTimeMinutes,departureTimeMinutes,arrivalDateTime,departureDateTime,arrivalDay,departureDay,day_of_journey,distance,journeyDuration);
 
 
     }
@@ -190,8 +194,8 @@ function parseTrainStation(data) {
 
 
 }
-function pushTrainStationToArray(trainNo, stop_Number, stationCode, arrivalTime,departureTime,arrivalMinutes,departureMinutes,arrivalDateTime,departureDateTime,arrivalDay,departureDay,day_of_journey,distance) {
-    trainStationListArrray.push({
+function pushTrainStationToArray(trainNo, stop_Number, stationCode, arrivalTime,departureTime,arrivalMinutes,departureMinutes,arrivalDateTime,departureDateTime,arrivalDay,departureDay,day_of_journey,distance,journeyDuration) {
+    trainStationListArray.push({
         trainNo: trainNo,
         stopNo: stop_Number,
         stationCode: stationCode,
@@ -204,12 +208,13 @@ function pushTrainStationToArray(trainNo, stop_Number, stationCode, arrivalTime,
         arrivalDay: arrivalDay,
         departureDay: departureDay,
         dayOfJourney: day_of_journey,
-        distance: distance
+        distance: distance,
+        journeyDuration:journeyDuration
 
     })
 }
 function pushDataToArray(trainNo, trainName, fromStation, toStation, runningDays, trainType) {
-    trainListArrray.push({
+    trainListArray.push({
         trainNo: trainNo,
         trainName: trainName,
         fromStation: fromStation,
