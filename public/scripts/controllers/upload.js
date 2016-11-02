@@ -6,4 +6,9 @@
 angular.module('sbAdminApp')
     .controller('UploadCtrl', function($scope) {
 
+        $scope.Upload = function(){
+
+            console.log("Inside Upload");
+        }
+
     });
