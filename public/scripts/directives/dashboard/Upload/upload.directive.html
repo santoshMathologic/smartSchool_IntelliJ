@@ -32,25 +32,20 @@
             <i class="fa fa-tasks" aria-hidden="true"></i>
           </button>
         </td>
-        <td>{{upload.originalFileName}}</td>
-        <td>{{upload.fileType}}</td>
-        <td>{{upload.fileSize}}</td>
-        <td>{{upload.description}}</td>
-        <td>{{upload.uploadedBy}}</td>
-        <td>{{upload.uploadedTime | date : 'medium'}}</td>
-        <td>{{upload.description}}</td>
-        <td>{{upload.status}}</td>
-        <td>{{upload.isProcessed}}</td>
+        <td editable-text="upload.originalFileName">{{upload.originalFileName}}</td>
+        <td editable-text="upload.fileType">{{upload.fileType}}</td>
+        <td editable-text="upload.fileSize">{{upload.fileSize}}</td>
+        <td editable-text="upload.description">{{upload.description}}</td>
+        <td editable-text="upload.uploadedBy">{{upload.uploadedBy}}</td>
+        <td editable-text="upload.uploadedTime">{{upload.uploadedTime | date : 'medium'}}</td>
+        <td editable-text="upload.description">{{upload.description}}</td>
+        <td editable-text="upload.status">{{upload.status}}</td>
+        <td editable-text="upload.isProcessed">{{upload.isProcessed}}</td>
 
         <td>
           <button class="btn btn-danger btn-xs" ng-click="removeUpload(upload)">
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>
-          <button class="btn btn-success btn-xs">
-            <i class="fa fa-pencil-square" aria-hidden="true"></i>
-          </button>
-
-
         </td>
       </tr>
 

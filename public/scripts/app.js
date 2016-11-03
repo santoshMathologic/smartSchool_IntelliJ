@@ -7,7 +7,7 @@
  *
  * Main module of the application.
  */
-angular
+var app = angular
   .module('smartAdminApp', [
     'oc.lazyLoad',
     'ui.router',
@@ -15,7 +15,8 @@ angular
     'angular-loading-bar',
       'ngFileUpload',
       'flow',
-      'toaster'
+      'toaster',
+      'xeditable'
   ])
   .config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider) {
     
@@ -23,6 +24,7 @@ angular
       debug:false,
       events:true,
     });
+
 
     $urlRouterProvider.otherwise('/dashboard/home');
 
@@ -188,5 +190,8 @@ angular
        url:'/grid'
    })
   }]);
+app.run(function(editableOptions) {
+    editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+});
 
     
