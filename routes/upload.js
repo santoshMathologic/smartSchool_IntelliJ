@@ -8,11 +8,28 @@ var upload = multer({ dest: 'uploads/' });
 var customConverter = require('../Utils/convertFileSystem.js');
 var customeException = require('../library/exception.js');
 var uploadModel = require("../models/upload.js");
+require('mongoose-query-paginate');
 
 
 
 
 var UploadObject = {
+
+
+     getUploads :function(req,res){
+
+         var options = {
+             perPage: parseInt(req.query.limit) || 10,
+             page: parseInt(req.query.page) || 1,
+             sortBy: req.query.sortBy || 'originalFileName'
+         };
+
+         var query = uploadModel.find({}).sort(options.sortBy);
+         query.paginate(options, function (err, result) {
+             res.json(result);
+         });
+
+     },
 
     createNewUpload: function (req, res) {
         var path = req.file.path;

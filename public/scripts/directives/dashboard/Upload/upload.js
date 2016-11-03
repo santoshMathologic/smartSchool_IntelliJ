@@ -16,7 +16,8 @@ angular.module('sbAdminApp').directive('upload', ['$compile','toaster', function
                 $scope.uploader.flow.upload();
             };
             $scope.processUpload = function(e){
-                console.log(e)
+                console.log(e);
+
             }
             $scope.removeFile = function(fileArray,file){
                 console.log(fileArray,file);
@@ -24,9 +25,14 @@ angular.module('sbAdminApp').directive('upload', ['$compile','toaster', function
                 toaster
                     .pop({
                         type: 'success',
-                        title: 'TrainType saved Succcessfully',
-                        body: 'TrainType saved Succcessfully.'
+                        title: 'Removed Succcessfully',
+                        body: 'Removed Succcessfully.'
                     });
+            }
+
+            $scope.successMessage = function(file){
+                file.msg= "File Upload Successfully";
+
             }
 
         }

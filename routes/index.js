@@ -26,7 +26,8 @@ router.post("/api/v1/userPlans", userPlan.createPlan);
 
 
 // Routes for upload
-router.post("/api/v1/upload/NewUpload",upload.single('Uploadfile'),userUpload.createNewUpload);
+router.get("/api/v1/upload",userUpload.getUploads);
+router.post("/api/v1/upload",upload.single('file'),userUpload.createNewUpload);
 
 
 // Routes for Processing
