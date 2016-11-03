@@ -7,11 +7,30 @@
  *
  * Main module of the application.
  */
+
+var api = {
+    protocol: 'http',
+    server: 'localhost',
+    port: 3000,
+    baseUrl: '/api/v1',
+    loginUrl: '/login',
+    registerUrl: '/register',
+
+};
+
+
+var apiUrl = api.protocol + '://' + api.server + ':' + api.port + api.baseUrl;
+var apiLoginUrl = api.protocol + '://' + api.server + ':' + api.port + api.loginUrl;
+var apiRegisterUrl = api.protocol + '://' + api.server + ':' + api.port + api.registerUrl;
+var initInjector = angular.injector(['ng']);
+var $http = initInjector.get('$http');
+
 var app = angular
   .module('smartAdminApp', [
     'oc.lazyLoad',
     'ui.router',
     'ui.bootstrap',
+      'ngCookies',
     'angular-loading-bar',
       'ngFileUpload',
       'flow',
@@ -136,11 +155,22 @@ var app = angular
       .state('dashboard.blank',{
         templateUrl:'views/pages/blank.html',
         url:'/blank'
-    })
-      .state('login',{
+    }).state('login',{
         templateUrl:'views/pages/login.html',
-        url:'/login'
-    })
+        url:'/login',
+          controller:'loginCtrl',
+          resolve: {
+              loadMyFiles:function($ocLazyLoad) {
+                  return $ocLazyLoad.load({
+                      name:'smartAdminApp',
+                      files:[
+                          'scripts/controllers/login.js'
+
+                      ]
+                  })
+              }
+          }
+      })
   }]);
 app.run(function(editableOptions) {
     editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
