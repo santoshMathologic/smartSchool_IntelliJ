@@ -4,6 +4,7 @@ angular.module('smartAdminApp').directive('upload', ['$compile','toaster', funct
         templateUrl: 'views/dashboard/upload.tmpl.html',
         controller: function ($scope,$http,Upload,toaster) {
             $scope.files = [];
+
             $scope.message ="file Upload Successfully";
             $scope.uploader={};
             $scope.$on('flow::fileSuccess', function (event, $flow, $file, $message) {

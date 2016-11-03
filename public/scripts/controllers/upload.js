@@ -5,7 +5,9 @@
 
 angular.module('smartAdminApp')
     .controller('UploadCtrl', function($scope,$http) {
+        $scope.isLoading = true;
   $scope.getUploads = function () {
+      $scope.isLoading = true;
             var apiUrl = "http://localhost:3000/api/v1/upload"
             var query = {
                 limit: 10,
@@ -21,6 +23,7 @@ angular.module('smartAdminApp')
                 $scope.perPage = response.data.options.perPage;
                 $scope.totalPages = response.data.last;
                 $scope.totalRecords = response.data.count;
+                $scope.isLoading = false;
 
             });
 
