@@ -32,15 +32,15 @@
             <i class="fa fa-tasks" aria-hidden="true"></i>
           </button>
         </td>
-        <td editable-text="upload.originalFileName">{{upload.originalFileName}}</td>
-        <td editable-text="upload.fileType">{{upload.fileType}}</td>
-        <td editable-text="upload.fileSize">{{upload.fileSize}}</td>
-        <td editable-text="upload.description">{{upload.description}}</td>
-        <td editable-text="upload.uploadedBy">{{upload.uploadedBy}}</td>
-        <td editable-text="upload.uploadedTime">{{upload.uploadedTime | date : 'medium'}}</td>
-        <td editable-text="upload.description">{{upload.description}}</td>
-        <td editable-text="upload.status">{{upload.status}}</td>
-        <td editable-text="upload.isProcessed">{{upload.isProcessed}}</td>
+        <td editable-text="upload.originalFileName" e-label="OriginalFileName">{{upload.originalFileName}}</td>
+        <td editable-text="upload.fileType" e-label="FileType">{{upload.fileType}}</td>
+        <td editable-text="upload.fileSize" e-label="fileSize">{{upload.fileSize}}</td>
+        <td editable-text="upload.description" e-label="Message">{{upload.description}}</td>
+        <td editable-text="upload.uploadedBy" e-label="UploadedBy">{{upload.uploadedBy}}</td>
+        <td editable-text="upload.uploadedTime" e-label="Time">{{upload.uploadedTime | date : 'medium'}}</td>
+        <td editable-text="upload.description" e-label="description">{{upload.description}}</td>
+        <td editable-text="upload.status" e-label="status">{{upload.status}}</td>
+        <td editable-text="upload.isProcessed" e-label="isProcessed">{{upload.isProcessed}}</td>
 
         <td>
           <button class="btn btn-danger btn-xs" ng-click="removeUpload(upload)">
