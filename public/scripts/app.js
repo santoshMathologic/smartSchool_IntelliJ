@@ -115,6 +115,22 @@ angular
             }
           }
         })
+        .state('dashboard.blankPage',{
+            templateUrl:'scripts/directives/dashboard/Blank/blank.directive.html',
+            url:'/blankPage',
+            controller:'BlankCtrl',
+            resolve: {
+                loadMyFiles:function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name:'smartAdminApp',
+                        files:[
+                            'scripts/controllers/blank.js',
+                            'scripts/directives/dashboard/Blank/blank.js'
+                        ]
+                    })
+                }
+            }
+        })
       .state('dashboard.blank',{
         templateUrl:'views/pages/blank.html',
         url:'/blank'

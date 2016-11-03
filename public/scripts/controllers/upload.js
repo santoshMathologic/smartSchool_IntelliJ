@@ -28,12 +28,6 @@ angular.module('smartAdminApp')
         }
         $scope.getUploads();
 
-        $scope.processUpload = function(upload){
-            console.log(upload);
 
-        }
-        $scope.removeUpload  = function(){
-
-        }
 
     });

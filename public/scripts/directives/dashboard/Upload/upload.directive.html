@@ -28,7 +28,7 @@
       <tr ng-repeat="upload in uploadsList" ng-disabled="upload.isProcessed" ng-class="(upload.isProcessed ? 'selected-Uploaded-row' : 'selected-UnUploaded-row')">
         <td>{{$index+1}}</td>
         <td>
-          <button class="btn btn-success btn-md" ng-click="processUpload(upload)">
+          <button class="btn btn-success btn-md" ng-click="trainProcessUpload(upload)">
             <i class="fa fa-tasks" aria-hidden="true"></i>
           </button>
         </td>

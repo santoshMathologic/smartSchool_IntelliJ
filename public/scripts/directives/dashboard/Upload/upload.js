@@ -34,6 +34,14 @@ angular.module('smartAdminApp').directive('upload', ['$compile','toaster', funct
                 file.msg= "File Upload Successfully";
 
             }
+            $scope.trainProcessUpload = function(upload){
+                console.log(upload);
+
+            }
+            $scope.removeUpload  = function(upload){
+
+                console.log(upload);
+            }
 
         }
 
