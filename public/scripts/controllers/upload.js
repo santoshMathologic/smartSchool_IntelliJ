@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('sbAdminApp')
+angular.module('smartAdminApp')
     .controller('UploadCtrl', function($scope,$http) {
   $scope.getUploads = function () {
             var apiUrl = "http://localhost:3000/api/v1/upload"

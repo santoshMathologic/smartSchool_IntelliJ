@@ -1,4 +1,4 @@
-angular.module('sbAdminApp').directive('upload', ['$compile','toaster', function ($compiler,toaster) {
+angular.module('smartAdminApp').directive('upload', ['$compile','toaster', function ($compiler,toaster) {
     return {
         restrict: 'E',
         templateUrl: 'views/dashboard/upload.tmpl.html',
