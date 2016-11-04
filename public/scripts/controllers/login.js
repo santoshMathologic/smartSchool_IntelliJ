@@ -5,6 +5,14 @@ angular.module('smartAdminApp').controller('loginCtrl',function($scope, $state, 
 
 
 
+    $scope.selectProjects =[
+        {name: 'CrewLink'},
+        {name: 'SmartWebSchool'},
+        {name: 'ShoppingForU'},
+        {name: 'SecureBank'},
+
+
+    ]
     $scope.user = {
         username:'',
         password:''

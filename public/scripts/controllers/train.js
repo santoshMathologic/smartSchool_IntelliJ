@@ -11,13 +11,6 @@ angular.module('smartAdminApp')
 
         $scope.isLoading = true;
         $scope.trainsList = [];
-        var apiUrl = "/api/v1/trains"
-        var query = {
-            limit: 10,
-            page: 1,
-            sortBy: "trainName"
-
-        }
 
         $scope.trainTypes =[
             {name: 'SUVD'},
