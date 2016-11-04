@@ -35,7 +35,8 @@ var app = angular
       'ngFileUpload',
       'flow',
       'toaster',
-      'xeditable'
+      'xeditable',
+      'smart-table'
   ])
   .config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider) {
     
@@ -60,7 +61,8 @@ var app = angular
                     'scripts/directives/header/header.js',
                     'scripts/directives/header/header-notification/header-notification.js',
                     'scripts/directives/sidebar/sidebar.js',
-                    'scripts/directives/sidebar/sidebar-search/sidebar-search.js'
+                    'scripts/directives/sidebar/sidebar-search/sidebar-search.js',
+                        'scripts/utils/serverTableFetch.js'
                     ]
                 }),
                 $ocLazyLoad.load(
@@ -112,6 +114,7 @@ var app = angular
               'scripts/directives/notifications/notifications.js',
               'scripts/directives/chat/chat.js',
               'scripts/directives/dashboard/stats/stats.js'
+
               ]
             })
           }
@@ -151,8 +154,52 @@ var app = angular
                     })
                 }
             }
-        })
-      .state('dashboard.blank',{
+        }).state('dashboard.uploadProcessing',{
+        templateUrl:'scripts/directives/dashboard/UploadProcessing/uploadProcessing.directive.html',
+        url:'/uploadProcessing',
+        controller:'UploadProcessingCtrl',
+        resolve: {
+            loadMyFiles:function($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    name:'smartAdminApp',
+                    files:[
+                        'scripts/controllers/uploadprocessing.js',
+                        'scripts/directives/dashboard/UploadProcessing/uploadProcessing.js'
+                    ]
+                })
+            }
+        }
+        }).state('dashboard.train',{
+           templateUrl:'views/dashboard/train.tmpl.html',
+            url:'/train',
+            controller:'trainCtrl',
+            resolve: {
+                loadMyFiles:function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name:'smartAdminApp',
+                        files:[
+                            'scripts/controllers/train.js',
+                            'scripts/directives/dashboard/train/train.js'
+                        ]
+                    })
+                }
+            }
+        }).state('dashboard.trainStation',{
+        templateUrl:'views/dashboard/trainStation.tmpl.html',
+        url:'/trainStation',
+        controller:'trainStationCtrl',
+        resolve: {
+            loadMyFiles:function($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    name:'smartAdminApp',
+                    files:[
+                        'scripts/controllers/trainStation.js',
+                        'scripts/directives/dashboard/trainStation/trainStation.js'
+                    ]
+                })
+            }
+        }
+    }).state('dashboard.blank',{
         templateUrl:'views/pages/blank.html',
         url:'/blank'
     }).state('login',{

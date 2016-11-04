@@ -8,11 +8,27 @@ var trainModel = require("../models/train.js");
 var timeCal = require("../library/timeCalculator.js");
 var jourCal = require("../library/journeyCalculation.js");
 var Q = require('q');
+require('mongoose-query-paginate');
+
 var trainListArray = [];
 var trainStationListArray = [];
 
 
 var trains = {
+
+    getTrains : function(req,res){
+
+        var options = {
+            perPage: parseInt(req.query.limit) || 10,
+            page: parseInt(req.query.page) || 1,
+            order: req.query.order || 'trainName'
+        };
+        var query;
+        var query = trainModel.find({}).sort(options.sortBy);
+        query.paginate(options, function (err, result) {
+            res.json(result);
+        });
+    },
     processUpload: function (req, res, next) {
 
         if (req.query.userChoice != null || req.query.userChoice != "") {

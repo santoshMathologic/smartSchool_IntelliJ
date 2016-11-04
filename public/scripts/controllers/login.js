@@ -10,10 +10,11 @@ angular.module('smartAdminApp').controller('loginCtrl',function($scope, $state, 
         password:''
 
     };
-
+    $scope.isLoggedIn = AuthenticationFactory.isLoggedIn();
     $scope.doLogin =function(){
         console.log("in Login"+$scope.user.username);
         console.log("in Login"+$scope.user.password);
+        $state.go("dashboard.home");
 
     }
 

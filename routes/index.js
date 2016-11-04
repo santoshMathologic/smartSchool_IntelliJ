@@ -27,12 +27,17 @@ router.post("/api/v1/userPlans", userPlan.createPlan);
 
 // Routes for upload
 router.get("/api/v1/upload",userUpload.getUploads);
-router.post("/api/v1/upload",upload.single('file'),userUpload.createNewUpload);
+router.post("/api/v1/upload",upload.single('uploadfile'),userUpload.createNewUpload);
 
 
 // Routes for Processing
 
 router.get("/api/v1/proTrainTimeTable", train.processUpload);
+
+// Routes for Trains
+
+router.get("/api/v1/trains", train.getTrains);
+
 
 
 
