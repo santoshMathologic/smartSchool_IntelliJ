@@ -39,31 +39,22 @@ angular.module('smartAdminApp')
         ]
 
         $scope.serverFetch = new ServerTableFetch(
-            "/api/crewTypes/search/findByNameContains",  // Url call that will be made all the time
-            $http,			// This is our Call Processing Service currently only SringDataRestApi is supported and used here.
-            function(){					// Before processing this is called
+            "/api/v1/trains",  // Url call that will be made all the time
+            $http,			// This is our Call Processing Service currently only $http is supported and used here.
+            function(beforeProcessingResponse){					// Before processing this is called
                 $scope.isLoading = true;
             },
             function(resultObj){			// After processing this is called
-                $scope.crewTypes = resultObj;
+                $scope.trainsList = resultObj.results;
+                $scope.currentPage = resultObj.current;
+                $scope.perPage = resultObj.options.perPage;
+                $scope.totalPages = resultObj.last;
+                $scope.totalRecords = resultObj.count;
                 $scope.isLoading = false;
             }
         );
 
-        $scope.getTrainList = function(){
-            $http.get(apiUrl, { params: query }).then(function (response) {
-                $scope.trainsList = response.data.results;
-                $scope.currentPage = response.data.current;
-                $scope.perPage = response.data.options.perPage;
-                $scope.totalPages = response.data.last;
-                $scope.totalRecords = response.data.count;
-                $scope.isLoading = false;
 
-            });
-
-
-        }
-        $scope.getTrainList();
 
 
 
